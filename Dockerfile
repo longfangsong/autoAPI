@@ -8,4 +8,5 @@ FROM alpine
 MAINTAINER longfangsong@icloud.com
 COPY --from=builder /go/src/autoAPI/autoAPI /
 WORKDIR /
-ENTRYPOINT /autoAPI
+ENTRYPOINT ["/autoAPI"]
+CMD ["--help"]
