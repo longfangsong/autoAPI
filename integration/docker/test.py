@@ -12,6 +12,12 @@ class DockerfileGeneratingTest(unittest.TestCase):
     def test_command_line(self):
         # force noDocker
         subprocess.run(
-            "./autoAPI --force -f ./integration/docker/default.yml --force --nodocker true -o ./api".split(' '))
+            "./autoAPI --force -f ./integration/docker/default.yml --force --nodocker -o ./api".split(' '))
         self.assertTrue(os.path.exists("./api"))
         self.assertFalse(os.path.exists("./api/Dockerfile"))
+
+
+if __name__ == '__main__':
+    loader = unittest.TestLoader()
+    loader.sortTestMethodsUsing = None
+    unittest.main(testLoader=loader)
